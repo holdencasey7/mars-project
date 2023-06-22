@@ -15,9 +15,25 @@ body {
 }
 
 .items {
-    padding: 15pt;
+    padding: 5pt;
     width: 100%;
     border: 1px solid rgb(0, 0, 0);
-    height: 50px;
-    margin: 5px; /* */
+    height: 95px;
+    margin: 5px; 
+}
+.dateSol {
+    display: block;
+    padding: 0px;
+}
+
+.high {
+    display: block;
+}
+
+.black-line {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 2px;
+    width: 100%;
+    text-align: center;
+    margin: 10px auto;
 }

@@ -6,36 +6,70 @@ function Weather() {
     <h1>Mars Weather</h1>
   </header>
   <div id="forecast">
-      <div class="items">
-        <span class="dateSol">SolDate</span>
-        <span class="dateUTC">Date</span>
+    <div class="items">
+      <span class="dateSol">SolDate</span>
+      <span class="dateUTC">Date</span>
+      <div class="black-line"></div>
+      <div class="fahrenheit">
+        <span class="high">High</span>
+        <span class="low">Low</span>
       </div>
-      <div class="items">
-        <span class="dateSol">SolDate</span>
-        <span class="dateUTC">Date</span>
+    </div>
+    <div class="items">
+      <span class="dateSol">SolDate</span>
+      <span class="dateUTC">Date</span>
+      <div class="black-line"></div> 
+      <div class="fahrenheit">
+        <span class="high">High</span>
+        <span class="low">Low</span>
       </div>
-      <div class="items">
-        <span class="dateSol">SolDate</span>
-        <span class="dateUTC">Date</span>
+    </div>
+    <div class="items">
+      <span class="dateSol">SolDate</span>
+      <span class="dateUTC">Date</span>
+      <div class="black-line"></div>
+      <div class="fahrenheit">
+        <span class="high">High</span>
+        <span class="low">Low</span>
       </div>
-      <div class="items">
-        <span class="dateSol">SolDate</span>
-        <span class="dateUTC">Date</span>
+    </div>
+    <div class="items">
+      <span class="dateSol">SolDate</span>
+      <span class="dateUTC">Date</span>
+      <div class="black-line"></div>
+      <div class="fahrenheit">
+        <span class="high">High</span>
+        <span class="low">Low</span>
       </div>
-      <div class="items">
-        <span class="dateSol">SolDate</span>
-        <span class="dateUTC">Date</span>
+    </div>
+    <div class="items">
+      <span class="dateSol">SolDate</span>
+      <span class="dateUTC">Date</span>
+      <div class="black-line"></div>
+      <div class="fahrenheit">
+        <span class="high">High</span>
+        <span class="low">Low</span>
       </div>
-      <div class="items">
-        <span class="dateSol">SolDate</span>
-        <span class="dateUTC">Date</span>
+    </div>
+    <div class="items">
+      <span class="dateSol">SolDate</span>
+      <span class="dateUTC">Date</span>
+      <div class="black-line"></div>
+      <div class="fahrenheit">
+        <span class="high">High</span>
+        <span class="low">Low</span>
       </div>
-      <div class="items">
-        <span class="dateSol">SolDate</span>
-        <span class="dateUTC">Date</span>
+    </div>
+    <div class="items">
+      <span class="dateSol">SolDate</span>
+      <span class="dateUTC">Date</span>
+      <div class="black-line"></div>
+      <div class="fahrenheit">
+        <span class="high">High</span>
+        <span class="low">Low</span>
       </div>
+    </div>
   </div>
-  
   </>
   );
 }
