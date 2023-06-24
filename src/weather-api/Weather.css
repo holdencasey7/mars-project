@@ -1,0 +1,39 @@
+.header {
+    text-align: center;
+    background-color: gray;
+    padding: 10px;
+}
+
+body {
+    background-color: rgba(222, 77, 24, 0.386);
+}
+
+#forecast {
+    display: flex;   
+    justify-content: center;
+    margin: 0%;
+}
+
+.items {
+    padding: 5pt;
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    height: 95px;
+    margin: 5px; 
+}
+.dateSol {
+    display: block;
+    padding: 0px;
+}
+
+.high {
+    display: block;
+}
+
+.black-line {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 2px;
+    width: 100%;
+    text-align: center;
+    margin: 10px auto;
+}

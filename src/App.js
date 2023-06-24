@@ -21,6 +21,8 @@ function App() {
         </label>
       </form>
       <Gallery sol={sol} />
+
+      <Weather />
     </>
   );
 }
