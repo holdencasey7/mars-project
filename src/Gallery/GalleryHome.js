@@ -4,40 +4,33 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function GalleryHome() {
+  const DEFAULT_DATE = "2023-06-27";
+
   const navigate = useNavigate();
 
-  const [sol, setSol] = useState(0);
+  const [earthDate, setEarthDate] = useState(DEFAULT_DATE);
 
-  const onSolInput = ({ target: { value } }) => {
-    if (value >= 0) {
-      setSol(value);
-    }
+  const onEarthDateInput = ({ target: { value } }) => {
+    setEarthDate(value);
   };
 
-  const onSolFormSubmit = (e) => {
+  const onEarthDateFormSubmit = (e) => {
     e.preventDefault();
-    if (!sol) {
-      setSol(0);
-    }
-    navigate(`/gallery/${sol}`);
+    console.log(earthDate);
+    navigate(`/gallery/${earthDate}`);
   };
 
   return (
     <>
       <h1 className="ms-3">Gallery</h1>
-      <h3 className="ms-3">Pick a Sol</h3>
-      <Form className="ms-3" onSubmit={onSolFormSubmit}>
+      <h3 className="ms-3">Pick an Earth Date</h3>
+      <Form className="ms-3" onSubmit={onEarthDateFormSubmit}>
         <Form.Group className="mb-3 me-3" controlId="formSol">
-          <Form.Control
-            type="number"
-            min={0}
-            placeholder="Enter Sol..."
-            onChange={onSolInput}
-          />
+          <Form.Control type="date" onChange={onEarthDateInput} />
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          View Sol's Images
+          View Images
         </Button>
       </Form>
     </>

@@ -32,7 +32,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/weather" element={<Weather />} />
           <Route path="/gallery" element={<GalleryHome />} />
-          <Route path="/gallery/:sol" element={<Gallery />} />
+          <Route path="/gallery/:earthDate" element={<Gallery />} />
         </Routes>
       </BrowserRouter>
     </>

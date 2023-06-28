@@ -9,9 +9,11 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { useNavigate } from "react-router-dom";
+import * as moment from "moment";
 
 function Gallery() {
-  const { sol } = useParams();
+  const { earthDate } = useParams();
+  let earthDateAsMoment = moment(earthDate);
   const MAX_SOL_VALUE = 9999999999;
   const navigate = useNavigate();
   const [imageJsonArray, setImageJsonArray] = useState([]);
@@ -22,7 +24,7 @@ function Gallery() {
       async function getImageJson() {
         try {
           const imageApiResponse = await axios
-            .get(`/api/images/json/${sol}`)
+            .get(`/api/images/all/json/${earthDate}`)
             .then((res) => {
               setImageJsonArray(res.data.image_json_array);
             });
@@ -36,20 +38,20 @@ function Gallery() {
     []
   );
 
-  const onPrevSolClick = () => {
-    if (!(parseInt(sol) <= 0)) {
-      setLoaded(false);
-      navigate(`/gallery/${parseInt(sol) - 1}`);
-      navigate(0);
-    }
+  const onPrevDayClick = () => {
+    setLoaded(false);
+    earthDateAsMoment.subtract(1, "days");
+    let newEarthDate = earthDateAsMoment.format("YYYY-MM-DD");
+    navigate(`/gallery/${newEarthDate}`);
+    navigate(0);
   };
 
-  const onNextSolClick = () => {
-    if (!(parseInt(sol) >= MAX_SOL_VALUE)) {
-      setLoaded(false);
-      navigate(`/gallery/${parseInt(sol) + 1}`);
-      navigate(0);
-    }
+  const onNextDayClick = () => {
+    setLoaded(false);
+    earthDateAsMoment.add(1, "days");
+    let newEarthDate = earthDateAsMoment.format("YYYY-MM-DD");
+    navigate(`/gallery/${newEarthDate}`);
+    navigate(0);
   };
 
   const onGalleryHomepageClick = () => {
@@ -58,7 +60,7 @@ function Gallery() {
 
   const galleryImages =
     imageJsonArray.length < 1 ? (
-      <b className="ms-3">Sorry, no images on Sol {sol}</b>
+      <b className="ms-3">Sorry, no images on {earthDate}</b>
     ) : (
       <Container fluid>
         <Row>
@@ -72,7 +74,8 @@ function Gallery() {
                   src={imageJson.img_src}
                 />
                 <Figure.Caption>
-                  Taken on {imageJson.earth_date} by the {imageJson.rover.name}
+                  Taken on Mission Sol {imageJson.sol} by the{" "}
+                  {imageJson.rover.name}
                   's {imageJson.camera.full_name}
                 </Figure.Caption>
               </Figure>
@@ -86,29 +89,29 @@ function Gallery() {
     <>
       <ButtonGroup className="ms-3 mt-3 mb-2" aria-label="Sol Nav Buttons">
         <Button
-          key="prevSolButton"
+          key="prevDayButton"
           variant="outline-secondary"
-          onClick={onPrevSolClick}
+          onClick={onPrevDayClick}
         >
-          ...Previous Sol
+          ...Previous Day
         </Button>
         <Button
-          key="homeSolButton"
+          key="homeGalleryButton"
           variant="outline-secondary"
           onClick={onGalleryHomepageClick}
         >
           Gallery Homepage
         </Button>
         <Button
-          key="nextSolButton"
+          key="nextDayButton"
           variant="outline-secondary"
-          onClick={onNextSolClick}
+          onClick={onNextDayClick}
         >
-          Next Sol...
+          Next Day...
         </Button>
       </ButtonGroup>
 
-      <h3 className="ms-3">Image Gallery for Sol {sol}</h3>
+      <h3 className="ms-3">Image Gallery for {earthDate}</h3>
       {loaded ? (
         galleryImages
       ) : (
